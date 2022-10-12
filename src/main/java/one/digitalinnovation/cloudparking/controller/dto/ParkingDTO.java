@@ -4,12 +4,14 @@
  */
 package one.digitalinnovation.cloudparking.controller.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import java.time.LocalDateTime;
 
 /**
  *
  * @author deiam
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ParkingDTO {
     private String id;
     private String license;
