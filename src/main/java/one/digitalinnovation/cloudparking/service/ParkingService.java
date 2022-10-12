@@ -4,6 +4,8 @@
  */
 package one.digitalinnovation.cloudparking.service;
 
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -41,5 +43,13 @@ public class ParkingService {
 
     public Parking findById(String id) {
         return parkingMap.get(id);
+    }
+    
+    public Parking create(Parking parkingCreate){
+        String uuid = getUUID();
+        parkingCreate.setId(getUUID());
+        parkingCreate.setEntryDate(new Date());
+        parkingMap.put(uuid, parkingCreate);
+        return parkingCreate;
     }
 }

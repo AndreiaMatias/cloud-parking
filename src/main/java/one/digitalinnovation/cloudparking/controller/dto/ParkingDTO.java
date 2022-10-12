@@ -4,8 +4,10 @@
  */
 package one.digitalinnovation.cloudparking.controller.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 /**
  *
@@ -18,8 +20,10 @@ public class ParkingDTO {
     private String state;
     private String model;
     private String color;
-    private LocalDateTime entryDate;
-    private LocalDateTime exitDate;
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm")
+    private Date entryDate;
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm")
+    private Date exitDate;
     private Double bill;
 
     public String getId() {
@@ -62,19 +66,19 @@ public class ParkingDTO {
         this.color = color;
     }
 
-    public LocalDateTime getEntryDate() {
+    public Date getEntryDate() {
         return entryDate;
     }
 
-    public void setEntryDate(LocalDateTime entryDate) {
+    public void setEntryDate(Date entryDate) {
         this.entryDate = entryDate;
     }
 
-    public LocalDateTime getExitDate() {
+    public Date getExitDate() {
         return exitDate;
     }
 
-    public void setExitDate(LocalDateTime exitDate) {
+    public void setExitDate(Date exitDate) {
         this.exitDate = exitDate;
     }
 
