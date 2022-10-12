@@ -27,8 +27,9 @@ public class ParkingController {
     private final ParkingService parkingService;
     private final ParkingMapper parkingMapper;
     
-    public ParkingController(ParkingService parkingService){
+    public ParkingController(ParkingService parkingService, ParkingMapper parkingMapper){
         this.parkingService = parkingService;
+        this.parkingMapper = parkingMapper;
     }
     
     @GetMapping
