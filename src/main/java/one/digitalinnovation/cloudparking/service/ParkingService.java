@@ -4,6 +4,7 @@
  */
 package one.digitalinnovation.cloudparking.service;
 
+import one.digitalinnovation.cloudparking.exception.ParkingNotFoundException;
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.HashMap;
@@ -42,7 +43,11 @@ public class ParkingService {
     }
 
     public Parking findById(String id) {
-        return parkingMap.get(id);
+        Parking parking = parkingMap.get(id);
+        if(parking==null){
+            throw new ParkingNotFoundException(id);
+        }
+        return parking;
     }
     
     public Parking create(Parking parkingCreate){
