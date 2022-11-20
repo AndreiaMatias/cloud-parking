@@ -21,9 +21,9 @@ public class ParkingDTO {
     private String model;
     private String color;
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm")
-    private Date entryDate;
+    private LocalDateTime entryDate;
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm")
-    private Date exitDate;
+    private LocalDateTime exitDate;
     private Double bill;
 
     public String getId() {
@@ -66,19 +66,19 @@ public class ParkingDTO {
         this.color = color;
     }
 
-    public Date getEntryDate() {
+    public LocalDateTime getEntryDate() {
         return entryDate;
     }
 
-    public void setEntryDate(Date entryDate) {
+    public void setEntryDate(LocalDateTime entryDate) {
         this.entryDate = entryDate;
     }
 
-    public Date getExitDate() {
+    public LocalDateTime getExitDate() {
         return exitDate;
     }
 
-    public void setExitDate(Date exitDate) {
+    public void setExitDate(LocalDateTime exitDate) {
         this.exitDate = exitDate;
     }
 

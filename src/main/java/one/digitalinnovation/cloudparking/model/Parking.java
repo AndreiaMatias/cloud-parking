@@ -6,19 +6,24 @@ package one.digitalinnovation.cloudparking.model;
 
 import java.time.LocalDateTime;
 import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 /**
  *
  * @author deiam
  */
+
+@Entity
 public class Parking {
+    @Id
     private String id;
     private String license;
     private String state;
     private String model;
     private String color;
-    private Date entryDate;
-    private Date exitDate;
+    private LocalDateTime entryDate;
+    private LocalDateTime exitDate;
     private Double bill;
 
     public Parking(String id, String license, String state, String model, String color) {
@@ -72,20 +77,28 @@ public class Parking {
         this.color = color;
     }
 
-    public Date getEntryDate() {
+    public LocalDateTime getEntryDate() {
         return entryDate;
     }
 
-    public void setEntryDate(Date entryDate) {
+    public void setEntryDate(LocalDateTime entryDate) {
         this.entryDate = entryDate;
     }
 
-    public Date getExitDate() {
+    public LocalDateTime getExitDate() {
         return exitDate;
     }
 
-    public void setExitDate(Date exitDate) {
-        this.exitDate = exitDate;
+    public void setExitDate(LocalDateTime exitDate) {
+        this.exitDate = exitDate.plusDays(5);
+    }
+    
+    public Double hoursAmountToPay(int numberHours){
+        Double firstHour = 5.0;
+        Double moreThanOneHour = 2.0;
+        Double totalAmount = 0.0;
+        totalAmount = firstHour + (moreThanOneHour * numberHours);
+        return totalAmount;
     }
 
     public Double getBill() {
